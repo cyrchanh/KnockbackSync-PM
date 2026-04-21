@@ -27,7 +27,7 @@ The config file is generated at `plugin_data/KnockbackSync/config.yml` on first 
 | `ping_offset` | `25` | Extra milliseconds added to `ping/2` when looking back in the buffer. Higher values = more aggressive compensation. |
 | `horizontal_kb` | `0.4` | Horizontal knockback strength. |
 | `vertical_kb_ground` | `0.4` | Vertical knockback when the player was on the ground client-side. |
-| `vertical_kb_air` | `0.0` | Vertical knockback when the player was airborne client-side. |
+| `vertical_kb_air` | `0.4` | Vertical knockback when the player was airborne client-side. |
 | `buffer_duration_ms` | `1000` | How many milliseconds of ground-state history to keep per player. Should be higher than the highest expected ping. |
 
 ## Limitations
