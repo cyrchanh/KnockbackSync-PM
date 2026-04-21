@@ -50,7 +50,7 @@ class KnockbackHandler implements Listener {
         $this->applySyncedKnockback($victim, $attacker);
     }
 
-        private function applySyncedKnockback(Player $victim, Player $attacker): void {
+    private function applySyncedKnockback(Player $victim, Player $attacker): void {
         $pingMs = $victim->getNetworkSession()->getPing() ?? 100;
         $lookbackMs = (int)($pingMs / 2) + $this->pingOffsetMs;
         $targetTime = (int)(microtime(true) * 1000) - $lookbackMs;
