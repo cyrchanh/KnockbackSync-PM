@@ -27,7 +27,7 @@ class Main extends PluginBase {
             (int) $config->get("ping_offset", 25),
             (float) $config->get("horizontal_kb", 0.4),
             (float) $config->get("vertical_kb_ground", 0.4),
-            (float) $config->get("vertical_kb_air", 0.0)
+            (float) $config->get("vertical_kb_air", 0.4)
         );
 
         $server = $this->getServer();
