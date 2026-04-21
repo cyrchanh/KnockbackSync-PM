@@ -50,19 +50,19 @@ class KnockbackHandler implements Listener {
         $this->applySyncedKnockback($victim, $attacker);
     }
 
-    private function applySyncedKnockback(Player $victim, Player $attacker): void {
+        private function applySyncedKnockback(Player $victim, Player $attacker): void {
         $pingMs = $victim->getNetworkSession()->getPing() ?? 100;
         $lookbackMs = (int)($pingMs / 2) + $this->pingOffsetMs;
         $targetTime = (int)(microtime(true) * 1000) - $lookbackMs;
-
+    
         $wasOnGround = $this->tracker->getGroundStateAt(
             $victim->getName(),
             $targetTime
         );
-
+    
         $direction = $victim->getPosition()->subtractVector($attacker->getPosition());
         $horizontalDist = sqrt($direction->x ** 2 + $direction->z ** 2);
-
+    
         if ($horizontalDist < 0.001) {
             $yaw = $attacker->getLocation()->getYaw();
             $dirX = -sin(deg2rad($yaw));
@@ -71,11 +71,18 @@ class KnockbackHandler implements Listener {
             $dirX = $direction->x / $horizontalDist;
             $dirZ = $direction->z / $horizontalDist;
         }
-
-        $kbX = $dirX * $this->horizontalKb;
-        $kbZ = $dirZ * $this->horizontalKb;
-        $kbY = $wasOnGround ? $this->verticalKbGround : $this->verticalKbAir;
-
+    
+        $currentMotion = $victim->getMotion();
+    
+        $kbX = ($currentMotion->x / 2) + ($dirX * $this->horizontalKb);
+        $kbZ = ($currentMotion->z / 2) + ($dirZ * $this->horizontalKb);
+        $kbY = ($currentMotion->y / 2) + ($wasOnGround ? $this->verticalKbGround : $this->verticalKbAir);
+    
+        // Cap vertical KB just like PocketMine does
+        if ($kbY > $this->verticalKbGround) {
+            $kbY = $this->verticalKbGround;
+        }
+    
         $victim->setMotion(new Vector3($kbX, $kbY, $kbZ));
     }
 }
