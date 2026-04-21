@@ -1,0 +1,20 @@
+# KnockbackSync Configuration
+
+# Ping offset in milliseconds.
+# The plugin looks back by (ping/2 + offset) to estimate the client-side state.
+# Higher values = more aggressive compensation. 25ms is a good starting point.
+ping_offset: 25
+
+# Horizontal knockback strength (vanilla default: 0.4)
+horizontal_kb: 0.4
+
+# Vertical knockback when the player was ON THE GROUND client-side (vanilla default: 0.4)
+vertical_kb_ground: 0.4
+
+# Vertical knockback when the player was AIRBORNE client-side
+# Vanilla behavior: no additional upward boost is applied when already airborne.
+vertical_kb_air: 0.0
+
+# How many milliseconds of ground-state history to keep per player.
+# Should be higher than the highest expected ping on your server.
+buffer_duration_ms: 1000

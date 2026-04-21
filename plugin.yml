@@ -1,0 +1,7 @@
+name: KnockbackSync
+version: "1.0.0"
+api: ["5.0.0"]
+main: cyrchanh\knockbacksync\Main
+author: cyrchanh
+description: Synchronizes knockback with client-side state to reduce latency-based PvP inconsistencies on Bedrock Edition.
+website: https://github.com/cyrchanh/KnockbackSync-PM
