@@ -9,8 +9,7 @@ horizontal_kb: 0.4
 vertical_kb_ground: 0.4
 
 # Vertical KB when the player was airborne client-side.
-# Vanilla doesn't apply an upward boost if the player is already in the air.
-vertical_kb_air: 0.0
+vertical_kb_air: 0.4
 
 # How long to keep ground state history per player in ms.
 # Set this higher than the worst ping you expect on your server.
