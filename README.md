@@ -10,8 +10,6 @@ PocketMine-MP operates knockback client-authoritatively – meaning that the ser
 
 The plugin tracks the state of each player (whether the player is currently on the ground) through the data stored in the `PlayerAuthInputPacket`. In case of damage, the plugin searches for the last value of the player's state in the buffer with a shift of `ping/2 + offset` to calculate the actual client state and apply knockback according to it.
 
-Players on the ground receive a boost of the Y velocity (`0.4` by default), while airborne players do not have it (`0.0` by default).
-
 ## Installation
 
 1. Download or build the `.phar` file.
