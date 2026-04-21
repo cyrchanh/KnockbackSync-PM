@@ -15,6 +15,7 @@ class Main extends PluginBase {
     public function onEnable(): void {
         $this->saveDefaultConfig();
 
+        // All values are read from config.yml
         $config = $this->getConfig();
 
         $this->tracker = new GroundStateTracker(
